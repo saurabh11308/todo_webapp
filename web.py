@@ -9,6 +9,7 @@ def add_todo():
     set_todos(todos)
     st.session_state["new_todo"] = ""
 
+st.set_page_config(layout="wide")
 
 st.title("Welcome to todo app")
 st.subheader("This is a todo app which tracks changes")
