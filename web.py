@@ -7,6 +7,8 @@ def add_todo():
     todo_new = st.session_state["new_todo"] + "\n"
     todos.append(todo_new)
     set_todos(todos)
+    st.session_state["new_todo"] = ""
+
 
 st.title("Welcome to todo app")
 st.subheader("This is a todo app which tracks changes")
