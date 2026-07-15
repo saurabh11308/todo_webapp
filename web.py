@@ -8,18 +8,17 @@ def add_todo():
     todos.append(todo_new)
     set_todos(todos)
 
-st.title("Welcome to TODO app")
+st.title("Welcome to todo app")
 st.subheader("This is a todo app which tracks changes")
 st.write("The purpose of this app is to improve productivity")
 
 for index,todo in enumerate(todos):
-    st.checkbox(todo,key=index)
-    if st.session_state[index] == True:
-        print("Hadippa")
+    checkbox = st.checkbox(todo,key=index)
+    if checkbox:
+        todos.pop(index)
+        set_todos(todos)
+        del st.session_state[index]
+        st.rerun()
 
 st.text_input(label="",placeholder="Add a todo here",on_change=add_todo,
               key="new_todo")
-
-print("Hello")
-
-st.session_state
